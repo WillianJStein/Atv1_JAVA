@@ -23,7 +23,7 @@
 public class Exchange {
     private final double cotacaoDolar = 5.5;
     private final double iof = 0.0586;
-    private final double taxaOperacaoEmPercentual = 0.01;
+    private final double taxaOperacaoEmPercentual = 1;
 
     @SuppressWarnings("unused")
     public double comprarDolar(double valorReal) {
@@ -32,7 +32,7 @@ public class Exchange {
         // 2. Descontar o IOF
         double valorDolarComIOF = valorDolar * (1 - iof);
         // 3. Descontar a taxa de operação
-        double taxaOperacao = valorDolar * taxaOperacaoEmPercentual;
+        double taxaOperacao = valorDolar * (taxaOperacaoEmPercentual / 100);
         double valorFinal = valorDolarComIOF - taxaOperacao;
         
         return valorFinal;
